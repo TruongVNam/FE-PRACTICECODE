@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ 
+    </style>
+</head>
+<body>
+    <div id="dispdata1">
+        <span style="font-weight:bold; color: black; font-size: 30px;">(</span>
+        <span style='color:rgb(169, 163, 163); font-weight:bold; font-size: 30px;'>)</span>
+    </div>
+    <div id="dispdata2">
+        <span style="font-weight:bold; color: black; font-size: 30px;">(</span>
+        <span style='font-style: italic; color:rgb(169, 163, 163); font-weight:bold; font-size: 30px;'>x</span>
+    <span style='color:rgb(169, 163, 163); font-weight:bold;font-size: 30px;'>)</span>
+    </div>
+<button onclick="importData()">Import Data</button>
+</body>
+<script>
+
+// class Exponents{
+//     expo
+//     root
+//     constructor(root, expo){
+//         this.root = root;
+//         this.expo =  expo;
+//     }
+//     getDisp(){
+//         return ""+this.root+"<sup>"+this.expo+"</sup>";
+//     }
+//     getValue(){
+//         return Math.pow(this.root, this.expo)
+//     }
+// }
+
+// let arrA = [["3", "5", "7"],["2", "4", "6"], []];
+// let arrB = [];
+// function synData (arr1, arr2){
+//     if (arr1.length !== arr2.length) {
+//         let arr = new Array(arr2.length-arr1.length);
+//         arr1.concat(arr);
+//         for (let i=0; i<arr2.length;i++){
+//             if(arr1[i] !== arr2[i]){
+//                 arr1[i] = arr2[i]; 
+//             }
+//         }
+//     }
+// }
+
+// function importData (){
+//     let data = prompt("Nhập data");
+//     arrB.push(data);
+//     synData(arrA[arrA.length-1], arrB);
+//     disData(arrB);
+//     disData(arrA);
+// }
+// function disData(data){
+//     console.log(data);
+// }
+let numSymbol = ["0", "1", "3", "4", "5", "6", "7", "8", "9"]
+let operatorSymbol = []
+let listSymbol = [
+    {symbol: "0", dispval:"0", calval: "0"},
+    {symbol: "1", dispval:"1", calval: "1"},
+    {symbol: "2", dispval:"2", calval: "2"},
+    {symbol: "3", dispval:"3", calval: "3"},
+    {symbol: "4", dispval:"4", calval: "4"},
+    {symbol: "5", dispval:"5", calval: "5"},
+    {symbol: "6", dispval:"6", calval: "6"},
+    {symbol: "7", dispval:"7", calval: "7"},
+    {symbol: "8", dispval:"8", calval: "8"},
+    {symbol: "9", dispval:"9", calval: "9"},
+    {symbol: ".", dispval:".", calval: "."},
+    {symbol: "+", dispval:"+", calval: "+"},
+    {symbol: "-", dispval:"-", calval: "-"},
+    {symbol: "&#215;", dispval:"&#215;", calval: "*"},
+    {symbol: "&#247;", dispval:"&#247", calval: "/"},
+    {symbol: "(", dispval:"(", calval: "("},
+    {symbol: ")", dispval:")", calval: ")"},
+
+    {symbol: "&#8730;", dispval:"&#8730;(", calval: "Math.sqrt("},
+    {symbol: "log", dispval:"log(", calval: "Math.log10("},
+    {symbol: "ln;", dispval:"ln(", calval: "Math.log("},
+    {symbol: "sin", dispval:"sin(", calval: "Math.sin("},
+    {symbol: "cos", dispval:"cos(", calval: "Math.cos("},
+    {symbol: "tan", dispval:"tan(", calval: "Math.tan("},
+    {symbol: "sin", dispval:"0", calval: "Math.sin"},
+    {symbol: "cos", dispval:"0", calval: "Math.cos"},
+    {symbol: "tan", dispval:"0", calval: "Math.tan"},
+    ///Arcsine Arccosine Arctangent
+    {symbol: "&#33;", dispval:["<sup>","","</sup>"], calvalue: ["Math.pow(", "", ")"]},
+    {symbol: "sin<sup>-1</sup>", dispval:"sin<sup>-1</sup>(", calvalue: "Math.asin("},
+    {symbol: "cos<sup>-1</sup>", dispval:"cos<sup>-1</sup>(", calvalue: "Math.acos("},
+    {symbol: "tan<sup>-1</sup>", dispval:"tan<sup>-1</sup>(", calvalue: "Math.atan("},
+];
+let specialSymbol = ["log", "ln", "sin", "cos","&#33;"]
+let arrC = 
+[
+    "5",
+    "^",
+    "(",
+    [
+        "cos",
+        "(",
+        "&pi;",
+        "/",
+        "3",
+        ")",
+        "+",
+        [
+            "sin",
+            "(",
+            "&pi;",
+            "/",
+            "6",
+            ")"
+        ],
+        ")"
+    ]
+];
+let arrD = []
+function translateData(arr1, arr2){
+    let temparr = new Array (arr1.length);
+
+}
+
+function checkASubExprForward(arr){
+let countORB = 0;
+let countCRB = 0;
+let firstORBindext = 0;
+let lastCRBindext = 0;
+for (let i = 0; i < arr.length; i++) {
+    if(arr[i] == "(") {
+        countORB++;
+        if (countORB == 1){
+            firstORB = i;
+        }
+    }
+    if(arr[i] == ")") {
+        countCRB++;
+        if (countCRB == countORB) {
+            lastCRBindext = i;
+            break;
+        }
+    }
+}
+}
+
+
+// function fExpo() {
+// let y = "<sup><input ></input></sup>"
+// }
+// function dis(){
+//     document.getElementById("demo").innerHTML = arr.join("");
+// }
+</script>
+</html>

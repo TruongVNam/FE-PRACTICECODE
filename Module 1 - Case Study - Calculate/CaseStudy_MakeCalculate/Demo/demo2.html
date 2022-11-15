@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+class MathSyntax{
+    arr
+    constructor(arr){
+        this.arr = arr;
+        this.operatorForORB = ["*", "/", "^", ")"];
+        this.operatorForCRB = ["+", "-", "*", "/", "^", "(",];
+        this.rBMap = this.arr.filter(item => (item == "(" || item == ")"));
+    }
+    isORBequaCRB(){
+        let checkCountORB = 0;
+        let checkCountCRB = 0;
+        this.arr.forEach(function(item){
+            if (item == "("){checkCountORB++};
+            if (item == ")"){checkCountCRB++};  
+        })
+        if (checkCountORB == checkCountCRB) {return true} else {return false}
+    }
+    isRBSyntaxErr(){
+        let checkErr = false;
+        for (let i = 0; i < this.arr.length; i++){
+            for (let j = 0; j < this.operatorForORB.length; j++){
+                if (i == 0 && this.arr[i] == this.operatorForORB[j]) {
+                    checkErr = true;
+                    if (checkErr){break;};   
+                } else if (this.arr[i] == "(" && this.arr[i+1] == this.operatorForORB[j]) {
+                    checkErr = true;
+                    if (checkErr){ break;}; 
+                } else if (this.arr[i] == ")" && this.arr[i-1] == this.operatorForCRB[j]) {
+                    checkErr = true;
+                    if (checkErr){ break;};
+                } 
+            };
+            if (checkErr){ break;};
+        }
+        return checkErr;
+    }
+    isRBPoisionErr(){
+        let checkErr = false
+        let tempArr = this.rBMap;
+        let lastORBIndex = tempArr.lastIndexOf("(");
+        let firstCRBIndex = tempArr.indexOf(")", lastORBIndex);
+        while (lastORBIndex >= 0 && firstCRBIndex >= 0){
+            tempArr.splice(lastORBIndex, (firstCRBIndex-lastORBIndex+1))
+            lastORBIndex = tempArr.lastIndexOf("(");
+            firstCRBIndex = tempArr.indexOf(")", lastORBIndex);
+        }
+        if ((lastORBIndex > 0 && firstCRBIndex < 0) || (lastORBIndex < 0 && firstCRBIndex > 0)) {checkErr = true;}
+        return checkErr;  
+    }   
+}
+
+//test class
+let str = "(cos(180/2)+5*12-3^(3*2))";
+let arr = str.split("");
+console.log(arr);
+
+let arrtest = new MathSyntax(arr)
+let mapRB = arrtest.rBMap;
+console.log(mapRB);
+console.log(arrtest.isORBequaCRB())
+console.log(arrtest.isRBSyntaxErr())
+// console.log(arrtest.isRBPoisionErr())
+</script>
+</html>

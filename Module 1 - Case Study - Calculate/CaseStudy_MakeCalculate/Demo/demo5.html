@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+// let str = "(cos(180/2)+5*12))-3^(3*2))+((9^2)";
+// let arr1 = str.split("");
+// console.log(arr1);
+// let arr = ['(', 'c', 'o', 's', '(', '1',
+//             '8', '0', '/', '2', ')', '+',
+//             '5', '*', '1', '2', '-', '3',
+//             '^', '(', '3', '*', '2', ')', ')'];
+
+// function isRBPoisionErr(array){
+//         let checkErr = false
+//         let tempArr = array;
+//         let lastORBIndex = tempArr.lastIndexOf("(");
+//         let firstCRBIndex = tempArr.indexOf(")", lastORBIndex);
+//         while (lastORBIndex >= 0 && firstCRBIndex >= 0){
+//             tempArr.splice(lastORBIndex, (firstCRBIndex-lastORBIndex+1))
+//             lastORBIndex = tempArr.lastIndexOf("(");
+//             firstCRBIndex = tempArr.indexOf(")", lastORBIndex);
+//             console.log(tempArr)
+//             console.log(lastORBIndex)
+//             console.log(firstCRBIndex)
+//         }
+//         if ((lastORBIndex > 0 && firstCRBIndex < 0) || (lastORBIndex < 0 && firstCRBIndex > 0)) {checkErr = true;}
+//         return checkErr;  
+// }
+// console.log(isRBPoisionErr(arr1));
+
+// let arrA = ["a", "b", "c"]
+//     console.log(arrA)
+//     arrA.push("d", "e", "(")
+//     console.log(arrA)
+function factorial (num) {
+    if (Number.isInteger(num)) {
+        let res = 1
+        for (let i = num; i > 0; i--) {
+            res *= i
+        }
+        return res;
+    } else {
+
+    }
+}
+console.log(factorial(4))
+
+
+
+
+
+
+</script>
+</html>

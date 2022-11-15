@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Calculator</title>
+    <link rel="stylesheet" href="CaseStudy_makeCalculate.css">
+</head>
+<style>
+body{
+    background-color: rgb(242, 224, 169);
+}
+#f0{
+    width: 335px;
+    height: 330px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #1e1d1d;
+    border: 3px solid rgb(239, 157, 24);
+    border-radius: 10px;
+    margin: auto;
+}
+    #display {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    background-color: #e4e1e1;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    }
+        #showmodle{
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        width: 310px;
+        padding: 0;
+        }
+        #dispinput {
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        width: 310px;
+        height: 45px;
+        text-align: left;
+        font-size:x-large;
+        padding: 0px;
+        }
+
+        #resultcal {
+        width: 300px;
+        height: 40px;
+        text-align: right;
+        padding: 0px;
+        }
+
+    /* #advan{
+    width: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    background-color: #e88e40;
+    padding: 0.3em;
+    border: 3px solid black;
+    border-radius: 3px;
+    } */
+    .f2{
+        width:fit-content;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: #1e1d1d;
+        border-color: none;
+    }
+    .btn1{
+        width:fit-content;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: #1e1d1d;
+        border-color: none;
+        margin-left: 10px;
+        margin-top: 15px;
+    }
+    .btn2{
+        width:fit-content;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: #1e1d1d;
+        border-color: none;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .btnfn, .btnnum{
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 11px;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 11px;
+    }
+
+
+    .btn1 {
+        width: 315px;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(5, 63px);
+        grid-template-rows: repeat(2, 32.5px);
+        margin-top: 15px;
+    }
+        .btnfn{
+            margin: 2px;
+            padding: 0px;
+            font-weight: 400px;
+            border: 2px solid rgb(160, 155, 155);
+
+        }
+
+    .btn2 {
+        width: auto;
+        height: 130px;
+        display: grid;
+        grid-template-columns: repeat(5, 63px);
+        grid-template-rows: repeat(4, 32.5px);
+        margin-top: 15px;
+    }
+        .btnnum{
+            margin: 1px;
+            padding: 0px;
+            font-weight: 400px;
+            border: 2px solid rgb(15, 14, 14);
+        }
+</style>
+<body>
+    <div class="f0" id="f0">
+        <!-- <div class="f1" id="f1">
+            <canvas id="graph" width="600px" height="600px" style="border: 1px solid black;"></canvas>
+        </div> -->
+        <div class="f2">
+            <div id="display">
+                <div id="showmodle">
+                    <!-- <div id="historybutton">&#10226;</div> -->
+                    <div id="historybutton"></div>
+                    <div id="showcurrentmodel"></div>
+                    <div id="alertmathsyntax" style="text-align: right;"></div>
+                </div>
+                <div id="dispinput"></div>
+                <div id="resultcal"></div>
+            </div>
+            <!-- <div id="advan">
+                <div>&#8801;</div>
+                <div></div>
+                <div></div>
+            </div> -->
+            <div class="btn1" >
+                <!-- <button class="btnfn" style="background-color: #666666; color: white;" name="inverted" id="inverted" onclick="inverted()">INV</button>
+                <button class="btnfn" style="background-color: #666666; color: white;" name="trigonometry" id="radian" onclick="numRad()" >\(Rad\)</button>
+                <button class="btnfn" style="background-color: #666666; color: white;" name="trigonometry" id="trigonometry" onclick="numDeg()">\(Deg\)</button>
+                <button class="btnfn" style="background-color: #666666; color: white;" name="graphfunction" id="graphfunction" onclick="graphfunction()">\(f(x)\)</button> -->
+
+                <button class="btnfn" style="background-color: #666666; color: white;" name="pi" id="pi" value="&pi;" onclick="numPi()">\(&pi;\)</button>
+                <button class="btnfn" style="background-color: #666666; color: white;" name="euler" id="euler" onclick="numE()">\(e\)</button>
+
+                <button class="btnfn" style="background-color: #666666; color: white;" name="fsin" id="fsin" onclick="fSin()">\(Sin\)</button>
+                <button class="btnfn" style="background-color: #666666; color: white;" name="fcosin" id="fcosin" onclick="fCos()">\(Cos\)</button>
+                <button class="btnfn" style="background-color: #666666; color: white;" name="ftan" id="ftan" onclick="fTan()">\(Tan\)</button>
+                <button class="btnfn" style="background-color: #666666; color: white;" name="flogarit" id="flogarit" onclick="fLogarit()">\(Log\)</button>
+                <button class="btnfn" style="background-color: #666666; color: white;" name="flogaritE" id="flogaritE" onclick="fLogaritE()">\(Ln\)</button>
+                <button class="btnfn" style="background-color: #666666; color: white;" name="fsqrt" id="fsqrt" onclick="fSqrt()">\(\sqrt{x}\)</button>
+                <button class="btnfn" style="background-color: #666666; color: white;" name="fexponents" id="fexponents" onclick="fExponents()">\(x^y\)</button>
+                <!-- <button class="btnfn" style="background-color: #666666; color: white;" name="factorials" id="factorials" onclick="numfac()">\(x&#33;\)</button> -->
+                <button class="btnfn" style="background-color: #666666; color: white;" name="ans" id="ans" onclick="preResVal()">\(Ans\)</button>
+            </div>
+            <div class="btn2">
+                <button class="btnnum" style="background-color: #333333; color: white;" name="7" value="7" onclick="num7()">7</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="8" value="8" onclick="num8()">8</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="9" value="9" onclick="num9()">9</button>
+                <button class="btnnum" style="background-color: rgb(255, 136, 0); color: white;" name="delete" id="delete" onclick="del()">DEL</button>
+                <button class="btnnum" style="background-color: rgb(255, 136, 0); color: white;" name="clearall" id="clearall" onclick="clearall()">AC</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="4" value="4" onclick="num4()">4</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="5" value="5" onclick="num5()">5</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="6" value="6" onclick="num6()">6</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="multi" id="multi" value="*" onclick="multi()">&#215;</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="divi" id="divi" value="/" onclick="divi()">&#247;</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="1" value="1" onclick="num1()">1</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="2" value="2" onclick="num2()">2</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="3" value="3" onclick="num3()">3</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="sub" value="-" onclick="sub()">-</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="add" value="+" onclick="add()">+</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="0" value="0" onclick="num0()">0</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="dot" value="." onclick="numdot()">.</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="openRBrackets" id="openRBrackets" value="(" onclick="numORB()">(</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="closeRBrackets" id="closeRBrackets" value=")" onclick="numCRB()">)</button>
+                <button class="btnnum" style="background-color: #333333; color: white;" name="equa" id="equa" onclick="equa()">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="CaseStudy_numEventClick/CaseStudy_numberFunction.js"></script>
+    <script src="CaseStudy_numEventClick/CaseStudy_numExprFunction.js"></script>
+    <!-- <script src="CaseStudy_numDrawGraph/CaseStudy_numDrawGraph.js"></script> -->
+    <script src="CaseStudy_numEventClick/CaseStudy_makeCalculate.js"></script>
+    <script src="CaseStudy_syntaxInput/CaseStudy_syntaxInput.js"></script>
+
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</html>

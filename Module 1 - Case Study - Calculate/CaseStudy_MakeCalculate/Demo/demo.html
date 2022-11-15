@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+</head>
+<body>
+    <div class='father'>
+        <div id='display'>
+            <div id='historybutton'>&#10226;</div>
+            <div id='dispinput'></div>
+            <div id='resultcal'></div>
+        </div>
+        <div id='advan'>
+            <div>&#8801;</div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class='btn1'>
+            <button class='btnchild1' name='inverted' id='inverted' onclick='inverted()'>INV</button>
+            <button class='btnchild1' name='trigonometry' id='radian' onclick='numRad()' >\(Rad\)</button>
+            <button class='btnchild1' name='trigonometry' id='trigonometry' onclick='numDeg()'>\(Deg\)</button>
+            <button class='btnchild1' name='function' id='graphfunction' onclick='graphfunction()'>\(f(x)\)</button>
+            <button class='btnchild1' name='factorials' id='factorials' onclick='numfac()'>\(x!\)</button>
+            <button class='btnchildnum' name='pi' id='pi' value='&pi;' onclick='numPi()'>\(&pi;\)</button>
+            <button class='btnchildnum' name='epsilon' id='epsilon' onclick='numE()'>\(e\)</button>
+</div><div>
+            <button class='btnchild1' name='sin' id='sin' onclick='sin()'>\(sin\)</button>
+            <button class='btnchild1' name='cosin' id='cosin' onclick='cos()'>\(cos\)</button>
+            <button class='btnchild1' name='tan' id='tan' onclick='tan()'>\(tan\)</button>
+            <button class='btnchild1' name='logarit' id='logarit' onclick='logarit()'>\(log\)</button>
+            <button class='btnchild1' name='logaritE' id='logaritE' onclick='logaritE()'>\(ln\)</button>
+            <button class='btnchild1' name='sqrt' id='sqrt' onclick='sqrt()'>\(\sqrt{x}\)</button>
+            <button class='btnchild1' name='exponents' id='exponents' onclick='exponents()'>\(x^y\)</button>
+            <button class='btnchildoperator' name='ans' id='ans' onclick='ans()'>\(Ans\)</button>
+</div><div>
+            <button class='btnchild1' name='sinInv' id='sinInv' onclick='sinInv()'>\(sin^{-1}\)</button>
+            <button class='btnchild1' name='cosinInv' id='cosinInv' onclick='cosInv()'>\(cos^{-1}\)</button>
+            <button class='btnchild1' name='tanInv' id='tanInv' onclick='tanInv()'>\(tan^{-1}\)</button>
+            <button class='btnchild1' name='logaritInv' id='logarInv' onclick='logaritInv()'>\(10^{x}\)</button>
+            <button class='btnchild1' name='logaritEInv' id='logaritEInv' onclick='logaritEInv()'>\(e^{x}\)</button>
+            <button class='btnchild1' name='sqrtInv' id='sqrtInv' onclick='sqrtInv()'>\(x^{2}\)</button>
+            <button class='btnchild1' name='exponentsInv' id='exponentsInv' onclick='exponentsInv()'>\(\sqrt[y]{x}\)</button>
+            <button class='btnchildoperator' name='random' id='random' onclick='random()'>\(Rnd\)</button>
+        </div>
+        <div class='btn2'>
+            <button class='btnchildnum' name='7' value='7'>7</button>
+            <button class='btnchildnum' name='8' value='8'>8</button>
+            <button class='btnchildnum' name='9' value='9'>9</button>
+            <button class='btnchildoperator' name='delete' id='delete' onclick='del()'>DEL</button>
+            <button class='btnchildoperator' name='clearall' id='clearall' onclick='clearall()'>AC</button>
+            <button class='btnchildnum' name='4' value='4' >4</button>
+            <button class='btnchildnum' name='5' value='5' >5</button>
+            <button class='btnchildnum' name='6' value='6' >6</button>
+            <button class='btnchildoperator' name='multi' id='multi' value='*' >&#215;</button>
+            <button class='btnchildoperator' name='divi' id='divi' value='/'>÷</button>
+            <button class='btnchildnum' name='1' value='1' >1</button>
+            <button class='btnchildnum' name='2' value='2' >2</button>
+            <button class='btnchildnum' name='3' value='3' >3</button>
+
+            <button class='btnchildoperator' name='sub' value='-' >-</button>
+            <button class='btnchildoperator' name='add' value='+' >+</button>
+            <button class='btnchildnum' name='0' value='0' >0</button>
+            <button class='btnchildnum' name='dot' value='.' >.</button>
+
+
+            <button class='btnchildnum' name='openRBrackets' id='openRBrackets' value='('>(</button>
+            <button class='btnchildnum' name='closeRBrackets' id='closeRBrackets' value=')'>)</button>
+            <button class='btnchildoperator' name='equa' id='equa' onclick='equa()'>=</button>
+        </div>
+    </div>
+    
+</body>
+<script>
+let arr1 = []
+let arr2 = []
+let arr3 = []
+    arr1.push("sin", "(", "12", "+", "8"+")")
+    console.log(arr1)
+function synData (arr1, arr2, arr3){ //Xử lý và chuyển dữ liệu của mảng thô (arr1) sang mảng tạm hiển thị (arr2) và mảng tạm giá trị (arr3)
+    for (let m = 0; m < arr1.length; m++){
+        arr2.push([]);
+        arr3.push([]);
+    };
+    for (let i = 0; i < arr1.length; i++){
+        for (let j = 0; j < arr1[i].length; j++){
+            arr2[i].push([]);
+            arr3[i].push([]);
+            for (let k = 0; k < listMathSymbol.length; k++){
+                if (arr1[i][j] == listMathSymbol[k]['symbol']){
+                }                    
+            }
+        }
+    }
+};
+synData (arr1, arr2, arr3)
+console.log(arr1, arr2, arr3)
+</script>
+</html>
